@@ -10,24 +10,50 @@
   <body>
     <section>
       <h1 class="title">ASPECT RATIO CALCULATOR</h1>
-      <p></p>
-      <p>Numbers</p>
-      <form>
-        <input id="num1" type="number" placeholder="0" />
-
-        <p>:</p>
-
-        <input id="num2" type="number" placeholder="0" />
-      </form>
-      <p>Aspect Ratio</p>
-      <form>
-        <input id="ar1" type="number" placeholder="0" />
-
-        <p>:</p>
-
-        <input id="ar2" type="number" placeholder="0" />
-      </form>
+      <div class="container">
+        <p>NUMBERS</p>
+        <form>
+          <input oninput="get_val()" id="num1" type="number" placeholder="0" />
+          <p>:</p>
+          <input oninput="get_val()" id="num2" type="number" placeholder="0" />
+        </form>
+        <p>ASPECT RATIO</p>
+        <form>
+          <input oninput="get_val()" id="ar1" type="number" placeholder="0" />
+          <p>:</p>
+          <input oninput="get_val()" id="ar2" type="number" placeholder="0" />
+        </form>
+      </div>
     </section>
   </body>
-  <script src="script.js"></script>
+  <script>
+    var num1 = document.getElementById("num1");
+    var num2 = document.getElementById("num2");
+    var ar1 = document.getElementById("ar1");
+    var ar2 = document.getElementById("ar2");
+
+    let n1, n2;
+
+    function hcf(n1, n2) {
+      if (n2 == 0) {
+        return n1;
+      }
+
+      return hcf(n2, n1 % n2);
+    }
+
+    function get_val() {
+      n1 = num1.value;
+      n2 = num2.value;
+      if (n1 != 0 || n2 != 0) {
+        ar1.value = `${n1 / hcf(n1, n2)}`;
+        ar2.value = `${n2 / hcf(n1, n2)}`;
+      } else if (n1 == 0 && n2 == 0) {
+        ar1.value = `0`;
+        ar2.value = `0`;
+      } else {
+        ar1.value = `1`;
+      }
+    }
+  </script>
 </html>

@@ -5,7 +5,8 @@
 }
 
 body {
-  font-family: "Lato";
+  background-color: #f5f5fa;
+  font-family: "Montserrat";
 }
 
 input::-webkit-outer-spin-button,
@@ -22,32 +23,52 @@ section {
   width: 100vw;
   height: 100vh;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 20px;
 }
 
 .title {
-  margin-top: 45px;
+  font-family: "Gobold";
+  font-weight: 100;
+  text-align: center;
+  font-size: 2rem;
+  color: #373738;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin-top: 20px;
+  color: #373738;
 }
 
 form {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+}
+.container p {
+  font-size: 1.2rem;
+  margin: 18px 0;
 }
 
 form input {
   font-size: 1.5rem;
   height: 50px;
-  width: 200px;
+  width: 150px;
   padding: 0 10px;
   outline: none;
-  border: noen;
+  border: none;
   border-radius: 8px;
+  box-shadow: 0 3px 2px #1b1b1b2d;
+  transition: 0.2s ease-in-out;
 }
 
-p {
-  font-size: 1.25rem;
+form input:focus {
+  border-top: 3px solid #1b1b1b2d;
+  box-shadow: none;
 }
